@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kanji_convert_api
+    volumes:
+      - ./src/:/src
+      - node_module_kanji:/src/node_modules
+    working_dir: /src
+    env_file: ./app.env
+    tty: true
+    command: npm run dev
+    ports:
+      - 3000:3000
+volumes:
+  node_module_kanji:
+    driver: local
