@@ -6,8 +6,8 @@ services:
       dockerfile: Dockerfile
     container_name: kanji_convert_api
     volumes:
-      - ./src/:/src
-      - node_module_kanji:/src/node_modules
+      - ./:/src
+      - node_module_kanji:/node_modules
     working_dir: /src
     env_file: ./app.env
     tty: true
