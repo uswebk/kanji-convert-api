@@ -23,10 +23,10 @@ exports.convertKanji = (article) => {
   });
 
   const kanji = {
-    new: new_kanji,
     old: old_kanji,
-    includedNew: includedNew,
+    new: new_kanji,
     includedOld: includedOld,
+    includedNew: includedNew,
     count: count,
   };
 
@@ -68,10 +68,8 @@ exports.checkParameter = (req) => {
     };
   }
 
-  const response = {
+  return {
     code: code,
     message: message,
   };
-
-  return response;
 };
