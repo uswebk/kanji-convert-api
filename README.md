@@ -1,29 +1,20 @@
 # API Documents
 
-## ・ URI
+## URI
 
 ```
-GET http://api.pg-lesson.com/v1/kanji/?article={}
+GET http://api.pg-lesson.com/v1/kanji/
 ```
 
----
+## Request
 
-## ・ Parameters
+| Parameters  | Type   | Query                             | Description                                      |
+| ----------- | ------ | --------------------------------- | ------------------------------------------------ |
+| **article** | String | /v1/kanji/?article=螢が飛んでいる | 旧漢字/新漢字を含む文章を渡す<br>(※500 文字まで) |
 
-```
-?article="螢が飛んでいる"
-```
+## Response Body
 
-### ・Properties
-
-- **article**
-  - String - 旧漢字・新漢字を含む文章を渡す(※500 文字まで)
-
----
-
-## ・ Response Body
-
-<font color=#84C98B>&nbsp;&nbsp;&nbsp;&nbsp;+ Response 200 (application/json)</font>
+`Response 200 (application/json)`
 
 ```json
 {
@@ -35,22 +26,15 @@ GET http://api.pg-lesson.com/v1/kanji/?article={}
 }
 ```
 
-### ・Properties
+| Properties      | Type    | Data           | Description                |
+| --------------- | ------- | -------------- | -------------------------- |
+| **old**         | String  | 螢が飛んでいる | 新漢字を旧漢字へ変換した値 |
+| **new**         | String  | 蛍が飛んでいる | 旧漢字を新漢字へ変換した値 |
+| **includedOld** | Bool    | true           | 旧漢字が含まれるか         |
+| **includedNew** | Bool    | true           | 旧漢字が含まれるか         |
+| **count**       | Integer | 1              | 存在した旧漢字数           |
 
-- **old**
-  - String - 旧漢字を新漢字へ変換した値
-- **new**
-  - String - 新漢字を旧漢字へ変換した値
-- **includedOld**
-  - Bool - 旧漢字が含まれるか
-- **includedNew**
-  - Bool - 旧漢字存在する新漢字が含まれるか
-- **count**
-  - Integer - 存在した旧漢字数
-
-### ・ Error
-
-<font color=#FA2019>&nbsp;&nbsp;&nbsp;&nbsp;+ Response 400 (application/json)</font>
+`Response 400 (application/json)`
 
 ```json
 {
@@ -58,7 +42,7 @@ GET http://api.pg-lesson.com/v1/kanji/?article={}
 }
 ```
 
-<font color=#FA2019>&nbsp;&nbsp;&nbsp;&nbsp;+ Response 404 (application/json)</font>
+`Response 404 (application/json)`
 
 ```json
 {
@@ -66,12 +50,10 @@ GET http://api.pg-lesson.com/v1/kanji/?article={}
 }
 ```
 
-<font color=#FA2019>&nbsp;&nbsp;&nbsp;&nbsp;+ Response 405 (application/json)</font>
+`Response 405 (application/json)`
 
 ```json
 {
   "message": "Method Not Allowed"
 }
 ```
-
----
