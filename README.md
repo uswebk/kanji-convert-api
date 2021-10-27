@@ -3,7 +3,7 @@
 ## URI
 
 ```
-GET http://api.pg-lesson.com/v1/kanji/
+GET http://api.lesson-pg.com/v1/kanji/
 ```
 
 ## Request
